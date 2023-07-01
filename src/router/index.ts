@@ -8,7 +8,7 @@ const constantRoutes: RouteRecordRaw[] = [
         component: Layout,
         children: [{
             path: '',
-            component: () => import(/* webpackChunkName: "dashboard" */ '@/views/HelloWorld.vue'),
+            component: () => import(/* webpackChunkName: "dashboard" */ '@/views/index.vue'),
             meta: {
                 title: 'home',
             }
