@@ -1,29 +1,36 @@
 <template>
-    <div class="header flex-inline">
-        <div>
-            <img class="logo" src="@/assets/logo_font.png" alt=""/>
-        </div>
-        <div class="flex-list">
-            <div>设为首页</div>
-            <div>收藏</div>
+    <div class="flex-inline w-full p-2 bg-cyan-200 overflow-auto">
+        <img class="w-1/4" src="@/assets/logo_font.png" alt=""/>
+        <div class="w-3/4 flex-inline">
+            <div class="ml-2 mr-2 w-max text-lg text-white hover:text-red-400 text-center"
+                 v-for="(item, index) in nav"
+                 :key="index"
+                 @click="onClickNav(item)"
+            >
+                {{ item.title }}
+            </div>
         </div>
     </div>
 </template>
+<script setup lang="ts">
 
-<script lang="ts">
-export default {
-    name: 'DefaultHeader'
+const nav = [
+    {title: '首页', link: '/'},
+    {title: '认识江大', link: '/'},
+    {title: '新闻资讯', link: '/'},
+    {title: '人才培养', link: '/'},
+    {title: '文化生活', link: '/'},
+    {title: '图书档案', link: '/'},
+    {title: '校园服务', link: '/'}
+]
+
+const onClickNav = (item) => {
+    console.log(item)
 }
 </script>
-
 <style scoped lang="less">
-.header{
-    padding: 20px 40px;
-    justify-content: space-between;
-    background-color: #fff;
+// todo 设配移动端
+@media screen and (max-width: 768px){
 
-    .logo{
-        width: 300px;
-    }
 }
 </style>
