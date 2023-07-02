@@ -1,4 +1,11 @@
 <template>
+    <div class="absolute top-60 left-40 rounded-2xl bg-white px-10 pt-8 pb-4">
+        <div class="text-moto text-3xl font-bold tracking-widest mb-2">求真 求善 求美</div>
+        <div>教育的伟大目标不只是装饰而是训练心灵，</div>
+        <div>使具备有用的能力而非填塞前人经验的累积</div>
+        <span class="bg-moto text-white px-4 py-2 mt-2 inline-block rounded-full uppercase shadow hover:shadow-indigo-700/80">read more</span>
+    </div>
+
     <div class="my-2 mx-4">
         <img src="@/assets/ic_card.png" class="ic-card" alt="ic-card"/>
     </div>

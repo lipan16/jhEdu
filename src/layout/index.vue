@@ -20,6 +20,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="less">
+.main{
+    position: relative;
+}
 
 </style>
