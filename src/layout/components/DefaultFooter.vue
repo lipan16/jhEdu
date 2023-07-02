@@ -19,13 +19,18 @@
 
         <div class="website">
             <em class="motto">求真 求善 求美</em>
-            <div class="copyright">版权所有&copy; 2023 江湖大学 &nbsp;&nbsp;湘ICP备xxx-xxx号</div>
+            <div class="copyright">版权所有&copy; 2023 江湖大学（虚构） &nbsp;&nbsp;湘ICP备xxx-xxx号</div>
             <div class="addr">地址：江湖四省兴业北路876号</div>
+            <div class="addr">已运行：{{ runTime }}</div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import {ref} from 'vue'
+import moment from 'moment'
+import {useIntervalFn} from '@vueuse/core'
+
 import weiboSvg from '@/assets/weibo.svg'
 import weixinSvg from '@/assets/weixin.svg'
 import qqSvg from '@/assets/qq.svg'
@@ -35,6 +40,24 @@ const socializingList = [
     {title: '江大微信', icon: weixinSvg},
     {title: '江大QQ', icon: qqSvg}
 ]
+
+const showTime = () => {
+    const time = moment.duration(moment().diff(moment('2023-06-27 10:00:00')))
+    const y = time.years()
+    const M = time.months()
+    const d = time.days()
+    const H = time.hours()
+    const m = time.minutes()
+    const s = time.seconds()
+    return `${y ? y + '年' : ''} ${M ? M + '个月' : ''} ${d ? d + '天' : ''}${H}时${m}分${s}秒`
+}
+
+const runTime = ref('')
+
+const {pause, resume, isActive} = useIntervalFn(() => {
+    runTime.value = showTime()
+}, 1000)
+
 </script>
 
 <style scoped lang="less">
