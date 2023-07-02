@@ -19,7 +19,7 @@
 
         <div class="website">
             <em class="motto">求真 求善 求美</em>
-            <div class="copyright">版权所有&copy; 2023 江湖大学（虚构） &nbsp;&nbsp;湘ICP备xxx-xxx号</div>
+            <div class="copyright">版权所有&copy; 2023 江湖大学(虚构) &nbsp;&nbsp;湘ICP备xxx-xxx号</div>
             <div class="addr">地址：江湖四省兴业北路876号</div>
             <div class="addr">已运行：{{ runTime }}</div>
         </div>
