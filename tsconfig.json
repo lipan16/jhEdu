@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ESNext",
     "useDefineForClassFields": true,
     "module": "ESNext",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": ["ES2020", "DOM"],
     "skipLibCheck": true,
     // 要包含的类型声明文件名列表
     "types": ["vite/client"],
@@ -15,6 +15,8 @@
     "composite": true,
     // 允许从没有设置默认导出的模块中默认导入
     "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "noImplicitAny": false,
 
     /* Bundler mode */
     "moduleResolution": "Node",
