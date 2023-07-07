@@ -16,3 +16,8 @@ npm run dev
 # 打包发布
 npm run build
 ```
+
+
+background-removal-js  前端抠图
+gsap 动画
+umi-request 基于fetch封装的库

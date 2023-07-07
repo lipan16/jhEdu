@@ -17,6 +17,9 @@
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "noImplicitAny": false,
+    "files": [
+      "node_modules/gsap/types/index.d.ts"
+    ],
 
     /* Bundler mode */
     "moduleResolution": "Node",
