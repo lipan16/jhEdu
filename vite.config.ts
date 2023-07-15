@@ -23,7 +23,7 @@ export default defineConfig(({command, mode}) => {
             }
         },
         build: {
-            minify: 'esbuild', // 必须开启：使用terserOptions才有效果
+            minify: 'terser', // 必须开启：使用terserOptions才有效果
             terserOptions: {
                 compress: {
                     keep_infinity: true,

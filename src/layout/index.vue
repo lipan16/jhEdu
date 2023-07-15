@@ -1,13 +1,11 @@
 <template>
     <DefaultHeader/>
-    <div class="flex-grow flex-list">
-        <div class="main grow">
-            <router-view v-slot="{Component, route}">
-                <component :is="Component" :key="route.fullPath"/>
-            </router-view>
-        </div>
-        <DefaultFooter/>
+    <div class="main">
+        <router-view v-slot="{Component, route}">
+            <component :is="Component" :key="route.fullPath"/>
+        </router-view>
     </div>
+    <DefaultFooter/>
 </template>
 
 <script lang="ts">

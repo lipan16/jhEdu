@@ -3,16 +3,20 @@ import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router'
 import Layout from '@/layout/index.vue'
 
 const constantRoutes: RouteRecordRaw[] = [
+    // {
+    //     path: '/',
+    //     component: Layout,
+    //     children: [{
+    //         path: '',
+    //         component: () => import(/* webpackChunkName: "dashboard" */ '@/views/index.vue'),
+    //         meta: {
+    //             title: 'home'
+    //         }
+    //     }]
+    // },
     {
         path: '/',
-        component: Layout,
-        children: [{
-            path: '',
-            component: () => import(/* webpackChunkName: "dashboard" */ '@/views/index.vue'),
-            meta: {
-                title: 'home',
-            }
-        }]
+        component: () => import(/* webpackChunkName: "dashboard" */ '@/views/index.vue'),
     }
 ]
 
