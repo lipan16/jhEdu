@@ -13,11 +13,12 @@
     </section>
     <section class="section-2">
         <div class="content-2">
-            <img src="@/assets/blr_20230512202601.png" alt="blr">
+            <video src="@/assets/cpc.mp4" class="cpc"/>
+            <!--      <img src="@/assets/blr_20230512202601.png" alt="blr">-->
         </div>
     </section>
     <section class="section_3">
-        <div>
+        <div >
             <img src="@/assets/blr_20230512202645.png" alt="blr">
         </div>
     </section>
@@ -48,87 +49,112 @@ import {ScrollTrigger} from 'gsap/ScrollTrigger'
 onBeforeMount(() => {
     gsap.registerPlugin(ScrollTrigger)
 })
-let ctx
 
 onMounted(() => {
-    ctx = gsap.fromTo('.content-1',
-        {
-            scale: 1
-        },
-        {
-            scale: 0.6,
-            // function(_, target){
-            //     return 1 - target.offsetHeight / document.documentElement.clientHeight
-            // },
-            scrollTrigger: {
-                trigger: '.section-1',
-                scrub: true,
-                // markers: true,
-                start: 'top top',
-                end: '+=760',
-                onUpdate: self => {
-                    console.log('self', self)
-                }
-            }
-        })
-
-
-    // ctx = ScrollTrigger.create({
+    // gsap.fromTo('.content-1', {scale: 1}, {
+    //   scale: 0.6,
+    //   scrollTrigger: {
     //     trigger: '.section-1',
-    //     // start: 0,
-    //     // end: '+=1620',
     //     scrub: true, // 将动画的进度直接链接到滚动条上
-    //     maskers: true,
-    //     animation: gsap.to('.content-1', {scale: 0.5, opacity: 0.5}),
+    //     // markers: true, // 显示开始结束标志
+    //     start: 'top top',
+    //     end: 'bottom',
+    //     onUpdate: self => { // 在start和end区域内滚动位置改变时触发
+    //       console.log('self', self)
+    //     },
     //     onEnter: () => {
-    //         console.log('滚动到start位置触发')
+    //       console.log('滚动到start位置触发')
     //     },
     //     onEnterBack: () => {
-    //         console.log('滚动超过end位置，再进入滚动区域触发')
+    //       console.log('滚动超过end位置，再进入滚动区域触发')
     //     },
     //     onLeave: () => {
-    //         console.log('滚出end位置时触发')
+    //       console.log('滚出end位置时触发')
     //     },
     //     onLeaveBack: () => {
-    //         console.log('滚出end位置，再滚回来超过start位置触发')
+    //       console.log('滚出end位置，再滚回来超过start位置触发')
     //     },
-    //     onUpdate: (self) => { // 在start和end区域内滚动位置改变时触发
-    //         console.log('self', self)
-    //     },
+    //   }
     // })
 
-    console.log(ctx)
+    // 第一屏动画
+    ScrollTrigger.create({
+        trigger: '.section-1',
+        scrub: true,
+        start: 'top top',
+        end: 'bottom',
+        // markers: true,
+        animation:
+        // gsap.fromTo('.content-1', {scale: 1}, {scale: 0.6})
+            gsap.timeline().fromTo('.content-1', {scale: 1}, {scale: 0.6})
+            .fromTo('.content-2', {width: '50%', height: '50vh'}, {width: '100%', height: '100vh'}, '<')
+    })
+
+    // ScrollTrigger.create({
+    //   trigger: '.section-2',
+    //   scrub: true,
+    //   start: 'top top',
+    //   end: 'bottom',
+    //   markers: true,
+    //   pin: true,
+    //   onUpdate: (self) => {
+    //     const cpc = document.querySelector('.cpc')
+    //     try{
+    //       cpc.currentTime = self.progress * cpc.duration
+    //     }catch (e) {
+    //       console.error('cpc: ', e)
+    //     }
+    //   }
+    // })
 })
 
 onUnmounted(() => {
-    ctx.revert()
+    // ctx.revert()
 })
 </script>
 
 <style scoped lang="less">
-.ic-card{
+.ic-card {
     border-radius: 8px;
     width: 100%;
     height: 500px;
 }
 
-.section-1{
+.section-1 {
     position: relative;
     width: 100%;
     height: 100vh;
 
-    .content-1{
-        //position: absolute;
-        //top: 50%;
-        //left: 50%;
+    .content-1 {
         width: 100%;
         height: 100vh;
-        //transform: translate(-50%, -50%);
 
-        > img{
+        > img {
             width: 100%;
             height: 100%;
             display: block;
+            object-fit: cover;
+        }
+    }
+}
+
+.section-2 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+
+    .content-2 {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        > video {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
         }
     }
